@@ -1,4 +1,4 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,9 +14,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.walletwizard.R
-import com.walletwizard.ui.theme.baseText
-import com.walletwizard.ui.theme.cardColor
+import com.savingsmart.R
+import com.savingsmart.ui.theme.baseText
+import com.savingsmart.ui.theme.secondText
+import com.savingsmart.ui.theme.white
 
 @Composable
 fun RowData(
@@ -27,24 +28,24 @@ fun RowData(
     Row (
         modifier = modifier
             .fillMaxWidth()
-            .background(color = cardColor)
+            .background(color = white)
             .padding(vertical = 7.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            color = baseText,
-            fontStyle = FontStyle(R.font.montserrat),
-            fontSize = 16.sp,
-            fontWeight = FontWeight(400),
+            color = secondText,
+            fontStyle = FontStyle(R.font.dinpro),
+            fontSize = 14.sp,
+            fontWeight = FontWeight(500),
             text = title,
             textAlign = TextAlign.Start
         )
         Text(
             color = baseText,
-            fontStyle = FontStyle(R.font.montserrat),
-            fontSize = 16.sp,
-            fontWeight = FontWeight(400),
+            fontStyle = FontStyle(R.font.dinpro),
+            fontSize = 14.sp,
+            fontWeight = FontWeight(500),
             text = content,
             textAlign = TextAlign.End
         )

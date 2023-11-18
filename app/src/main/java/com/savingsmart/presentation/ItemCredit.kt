@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.savingsmart.presentation.MainEvent
+import com.savingsmart.presentation.RowCard
+import com.savingsmart.presentation.RowData
 import com.walletwizard.R
 import com.walletwizard.data.VALUE_ONE
 import com.walletwizard.domain.model.ElementOffer

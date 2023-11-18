@@ -11,12 +11,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.savingsmart.domain.model.StatusApplication
+import com.savingsmart.domain.model.StatusApplication.Offer
 import com.savingsmart.domain.model.TypeCard
 import com.savingsmart.domain.model.basedto.BaseState
 import com.savingsmart.presentation.MainEvent.OnChangeBaseState
 import com.savingsmart.presentation.MainEvent.OnChangeStatusApplication
 import com.walletwizard.presentation.ConnectScreen
-import com.walletwizard.presentation.OfferScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
@@ -102,8 +102,8 @@ fun Sample(
 
         is StatusApplication.Offer -> {
             OfferScreen(
-                elementOffer = (state.value.statusApplication as StatusApplication.Offer).elementOffer,
-                baseState = (state.value.statusApplication as StatusApplication.Offer).currentBaseState,
+                elementOffer = (state.value.statusApplication as Offer).elementOffer,
+                baseState = (state.value.statusApplication as Offer).currentBaseState,
                 onEvent = viewModel::onEvent,
             )
         }

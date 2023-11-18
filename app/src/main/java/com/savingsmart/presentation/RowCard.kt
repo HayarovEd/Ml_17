@@ -1,4 +1,4 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import com.walletwizard.R
-import com.walletwizard.data.VALUE_ONE
+import com.savingsmart.R
+import com.savingsmart.data.VALUE_ONE
 
 @Composable
 fun RowCard(
