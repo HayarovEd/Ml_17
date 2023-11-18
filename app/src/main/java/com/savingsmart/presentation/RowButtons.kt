@@ -1,4 +1,4 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -27,14 +27,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.savingsmart.presentation.MainEvent
-import com.walletwizard.R
-import com.walletwizard.domain.model.ElementOffer
-import com.walletwizard.domain.model.StatusApplication
-import com.walletwizard.domain.model.basedto.BaseState
-import com.walletwizard.ui.theme.cardColor
-import com.walletwizard.ui.theme.orange
-import com.walletwizard.ui.theme.white
+import com.savingsmart.R
+import com.savingsmart.domain.model.ElementOffer
+import com.savingsmart.domain.model.StatusApplication
+import com.savingsmart.domain.model.basedto.BaseState
+import com.savingsmart.ui.theme.baseText
+import com.savingsmart.ui.theme.green
+import com.savingsmart.ui.theme.grey
+import com.savingsmart.ui.theme.secondText
+import com.savingsmart.ui.theme.yellow
 
 @Composable
 fun RowButtons(
@@ -67,9 +68,37 @@ fun RowButtons(
         Box(
             modifier = modifier
                 .weight(1f)
-                .border(width = 2.dp, color = orange, shape = RoundedCornerShape(20.dp))
-                .clip(shape = RoundedCornerShape(20.dp))
-                .background(color = cardColor)
+                .clip(shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                .background(color = yellow)
+                .clickable(onClick = {
+                    onEvent(
+                        MainEvent.OnGoToWeb(
+                            urlOffer = order,
+                            nameOffer = name
+                        )
+                    )
+                })
+                .padding(vertical = 10.dp /*horizontal = 16.dp*/)
+        ) {
+            Text(
+                modifier = modifier.fillMaxWidth(),
+                text = stringResource(id = R.string.checkout),
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.dinpro)),
+                    fontWeight = FontWeight(500),
+                ),
+                color = green,
+                textAlign = TextAlign.Center
+            )
+        }
+        Spacer(modifier = modifier.width(12.dp))
+        Box(
+            modifier = modifier
+                .weight(1f)
+                //.border(width = 2.dp, color = orange, shape = RoundedCornerShape(20.dp))
+                .clip(shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                .background(color = grey)
                 .clickable(onClick = {
                     onEvent(
                         MainEvent.OnChangeStatusApplication(
@@ -98,42 +127,25 @@ fun RowButtons(
                         )
                     )
                 })
-                .padding(vertical = 12.dp)
+                .padding(vertical = 10.dp)
         ) {
-            Icon(
+            Text(
+                modifier = modifier.fillMaxWidth(),
+                text = stringResource(id = R.string.more),
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.dinpro)),
+                    fontWeight = FontWeight(500),
+                ),
+                color = secondText,
+                textAlign = TextAlign.Center
+            )
+            /*Icon(
                 modifier = modifier.align(alignment = Alignment.Center),
                 imageVector = ImageVector.vectorResource(id = R.drawable.baseline_more_vert_32),
                 tint = orange,
                 contentDescription = ""
-            )
-        }
-        Spacer(modifier = modifier.width(9.dp))
-        Box(
-            modifier = modifier
-                .weight(4f)
-                .clip(shape = RoundedCornerShape(80.dp))
-                .background(color = orange)
-                .clickable(onClick = {
-                    onEvent(
-                        MainEvent.OnGoToWeb(
-                            urlOffer = order,
-                            nameOffer = name
-                        )
-                    )
-                })
-                .padding(vertical = 16.dp /*horizontal = 16.dp*/)
-        ) {
-            Text(
-                modifier = modifier.fillMaxWidth(),
-                text = stringResource(id = R.string.checkout),
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontFamily = FontFamily(Font(R.font.montserrat)),
-                    fontWeight = FontWeight(600),
-                ),
-                color = white,
-                textAlign = TextAlign.Center
-            )
+            )*/
         }
     }
 }

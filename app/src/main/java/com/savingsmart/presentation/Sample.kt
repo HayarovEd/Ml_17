@@ -11,12 +11,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.savingsmart.domain.model.StatusApplication
+import com.savingsmart.domain.model.StatusApplication.Info
 import com.savingsmart.domain.model.StatusApplication.Offer
 import com.savingsmart.domain.model.TypeCard
-import com.savingsmart.domain.model.basedto.BaseState
+import com.savingsmart.domain.model.basedto.BaseState.Cards
+import com.savingsmart.domain.model.basedto.BaseState.Credits
+import com.savingsmart.domain.model.basedto.BaseState.Loans
+import com.savingsmart.domain.model.basedto.BaseState.WebPrimary
 import com.savingsmart.presentation.MainEvent.OnChangeBaseState
 import com.savingsmart.presentation.MainEvent.OnChangeStatusApplication
-import com.walletwizard.presentation.ConnectScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
@@ -52,17 +55,17 @@ fun Sample(
                 db = state.value.dbData!!,
                 onClickCards = { onEvent(
                     OnChangeBaseState(
-                        BaseState.Cards(
+                        Cards(
                             typeCard = typeCard
                         )
                     )
                 ) },
-                onClickCredits = { onEvent(OnChangeBaseState(BaseState.Credits)) },
-                onClickLoans = { onEvent(OnChangeBaseState(BaseState.Loans)) },
+                onClickCredits = { onEvent(OnChangeBaseState(Credits)) },
+                onClickLoans = { onEvent(OnChangeBaseState(Loans)) },
                 onClickRules = {
                     onEvent(
                         OnChangeStatusApplication(
-                            StatusApplication.Info(
+                            Info(
                                 currentBaseState = currentState.baseState,
                                 content = state.value.dbData!!.appConfig.privacyPolicyHtml
                             )
@@ -71,7 +74,7 @@ fun Sample(
                 },
                 onClickPrimary = {
                     onEvent(OnChangeBaseState(
-                        BaseState.WebPrimary(
+                        WebPrimary(
                             offerName = state.value.dbData!!.appConfig.namePrimary ?: "",
                             url = state.value.dbData!!.appConfig.urlPrimary ?: ""
                         )

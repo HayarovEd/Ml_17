@@ -1,4 +1,4 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -8,11 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -20,6 +20,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -29,24 +30,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.savingsmart.presentation.MainEvent
-import com.savingsmart.presentation.WebViewScreenPrimary
-import com.walletwizard.R
-import com.walletwizard.R.string
-import com.walletwizard.data.VALUE_ONE
-import com.walletwizard.domain.model.basedto.BaseDto
-import com.walletwizard.domain.model.basedto.BaseState
-import com.walletwizard.domain.model.basedto.BaseState.Cards
-import com.walletwizard.domain.model.basedto.BaseState.Credits
-import com.walletwizard.domain.model.basedto.BaseState.Loans
-import com.walletwizard.domain.model.basedto.CardsCredit
-import com.walletwizard.domain.model.basedto.CardsDebit
-import com.walletwizard.domain.model.basedto.CardsInstallment
-import com.walletwizard.ui.theme.baseBackground
-import com.walletwizard.ui.theme.baseText
-import com.walletwizard.ui.theme.grey
-import com.walletwizard.ui.theme.orange
-import com.walletwizard.ui.theme.white
+import com.savingsmart.R
+import com.savingsmart.R.drawable
+import com.savingsmart.R.string
+import com.savingsmart.data.VALUE_ONE
+import com.savingsmart.domain.model.basedto.BaseDto
+import com.savingsmart.domain.model.basedto.BaseState
+import com.savingsmart.domain.model.basedto.BaseState.Cards
+import com.savingsmart.domain.model.basedto.BaseState.Credits
+import com.savingsmart.domain.model.basedto.BaseState.Loans
+import com.savingsmart.domain.model.basedto.CardsCredit
+import com.savingsmart.domain.model.basedto.CardsDebit
+import com.savingsmart.domain.model.basedto.CardsInstallment
+import com.savingsmart.ui.theme.baseText
+import com.savingsmart.ui.theme.secondText
+import com.savingsmart.ui.theme.white
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -93,9 +91,9 @@ fun ConnectScreen(
                             modifier = modifier
                                 .fillMaxWidth(),
                             color = baseText,
-                            fontStyle = FontStyle(R.font.montserrat),
-                            fontSize = 22.sp,
-                            fontWeight = FontWeight(600),
+                            fontStyle = FontStyle(R.font.dinpro),
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight(700),
                             text = title,
                             textAlign = TextAlign.Center
                         )
@@ -108,7 +106,7 @@ fun ConnectScreen(
                     }
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = baseBackground
+                    containerColor = white
                 )
             )
         },
@@ -116,7 +114,7 @@ fun ConnectScreen(
             BottomAppBar(
                 containerColor = white,
                 modifier = modifier
-                //.clip(shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
+                .clip(shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
             ) {
                 Row(
                     modifier = modifier
@@ -150,7 +148,7 @@ fun ConnectScreen(
                     }
                     if (!db.loans.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Loans) orange else grey,
+                            color = secondText,//if (baseState is Loans) orange else grey,
                             content = stringResource(id = string.loans),
                             icon = if (baseState is Loans) ImageVector.vectorResource(id = drawable.loans_fill) else ImageVector.vectorResource(
                                 id = drawable.loans
@@ -160,7 +158,7 @@ fun ConnectScreen(
                     }
                     if (!db.cards.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Cards) orange else grey,
+                            color = secondText,//if (baseState is Cards) orange else grey,
                             content = stringResource(id = string.cards),
                             icon = if (baseState is Cards) ImageVector.vectorResource(id = drawable.cards_fill) else ImageVector.vectorResource(
                                 id = drawable.cards
@@ -170,7 +168,7 @@ fun ConnectScreen(
                     }
                     if (!db.credits.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Credits) orange else grey,
+                            color = secondText,//if (baseState is Credits) orange else grey,
                             content = stringResource(id = string.credits),
                             icon = if (baseState is Credits) ImageVector.vectorResource(id = drawable.credits_fill) else ImageVector.vectorResource(
                                 id = drawable.credits
@@ -242,18 +240,18 @@ fun ItemBottomBar(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         IconButton(
-            colors = IconButtonDefaults.iconButtonColors(
+            /*colors = IconButtonDefaults.iconButtonColors(
                 contentColor = color
-            ),
+            ),*/
             onClick = onClick
         ) {
             Icon(imageVector = icon, contentDescription = "")
         }
         Text(
             color = color,
-            fontStyle = FontStyle(R.font.montserrat),
-            fontSize = 11.sp,
-            fontWeight = FontWeight(700),
+            fontStyle = FontStyle(R.font.roboto),
+            fontSize = 14.sp,
+            fontWeight = FontWeight(500),
             text = content
         )
     }

@@ -33,7 +33,7 @@ import com.savingsmart.presentation.MainEvent.Reconnect
 import com.savingsmart.ui.theme.baseText
 import com.savingsmart.ui.theme.grey
 import com.savingsmart.ui.theme.secondText
-import com.savingsmart.ui.theme.thitdText
+import com.savingsmart.ui.theme.thirdText
 
 @Composable
 fun NoInternetScreen(
@@ -92,7 +92,7 @@ fun NoInternetScreen(
                 ),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = grey,
-                    contentColor = thitdText,
+                    contentColor = thirdText,
                 ),
                 onClick = { onEvent(Reconnect) }
             ) {

@@ -12,7 +12,7 @@ val Pink40 = Color(0xFF7D5260)
 
 val baseText = Color(0xFF1A1A1A)
 val secondText = Color(0xFF4D4D4D)
-val thitdText = Color(0xFF333333)
+val thirdText = Color(0xFF333333)
 val white = Color(0xFFFFFFFF)
 val yellow = Color(0xFFF3FF63)
 val green = Color(0xFF04490F)
