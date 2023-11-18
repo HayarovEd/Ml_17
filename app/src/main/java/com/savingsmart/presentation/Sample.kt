@@ -1,4 +1,4 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import android.os.Build
 import android.widget.Toast
@@ -10,12 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.walletwizard.domain.model.StatusApplication
-import com.walletwizard.domain.model.TypeCard
-import com.walletwizard.domain.model.basedto.BaseState
+import com.savingsmart.domain.model.StatusApplication
+import com.savingsmart.domain.model.TypeCard
+import com.savingsmart.domain.model.basedto.BaseState
 import com.savingsmart.presentation.MainEvent.OnChangeBaseState
 import com.savingsmart.presentation.MainEvent.OnChangeStatusApplication
-import com.savingsmart.presentation.MainViewModel
+import com.walletwizard.presentation.ConnectScreen
+import com.walletwizard.presentation.OfferScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable

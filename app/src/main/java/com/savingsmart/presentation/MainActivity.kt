@@ -22,7 +22,6 @@ import com.savingsmart.data.APPS_FLYER
 import com.savingsmart.data.LINK
 import com.savingsmart.data.SHARED_APPSFLYER_INSTANCE_ID
 import com.savingsmart.data.SHARED_DATA
-import com.walletwizard.presentation.Sample
 import dagger.hilt.android.AndroidEntryPoint
 
 

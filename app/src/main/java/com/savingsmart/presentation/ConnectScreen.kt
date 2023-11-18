@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.savingsmart.presentation.MainEvent
+import com.savingsmart.presentation.WebViewScreenPrimary
 import com.walletwizard.R
 import com.walletwizard.R.string
 import com.walletwizard.data.VALUE_ONE

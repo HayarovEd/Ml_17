@@ -1,7 +1,6 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -18,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -29,13 +28,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.savingsmart.presentation.MainEvent
-import com.walletwizard.R
+import com.savingsmart.R
 import com.savingsmart.presentation.MainEvent.Reconnect
-import com.walletwizard.ui.theme.baseBackground
-import com.walletwizard.ui.theme.baseText
-import com.walletwizard.ui.theme.orange
-import com.walletwizard.ui.theme.white
+import com.savingsmart.ui.theme.baseText
+import com.savingsmart.ui.theme.grey
+import com.savingsmart.ui.theme.secondText
+import com.savingsmart.ui.theme.thitdText
 
 @Composable
 fun NoInternetScreen(
@@ -45,71 +43,78 @@ fun NoInternetScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(color = baseBackground)
+            //.background(color = baseBackground)
             .padding(27.dp)
     ) {
+        Image(
+            modifier = modifier
+                .fillMaxSize(),
+            painter = painterResource(id = R.drawable.background_image),
+            contentDescription = ""
+        )
         Column(
             modifier = modifier.align(alignment = Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = modifier.size(130.dp),
+                modifier = modifier.fillMaxWidth(),
                 painter = painterResource(
                     id = R.drawable.no_connection
                 ),
-                contentDescription = ""
+                contentDescription = "",
+                contentScale = ContentScale.FillWidth
             )
-            Spacer(modifier = modifier.height(30.dp))
+            Spacer(modifier = modifier.height(62.dp))
             Text(
                 text = stringResource(id = R.string.not_connect),
-                fontSize = 24.sp,
-                fontWeight = FontWeight(500),
-                fontStyle = FontStyle(R.font.montserrat),
+                fontSize = 16.sp,
+                fontWeight = FontWeight(700),
+                fontStyle = FontStyle(R.font.dinpro),
                 color = baseText,
                 textAlign = TextAlign.Center
             )
-            Spacer(modifier = modifier.height(20.dp))
+            Spacer(modifier = modifier.height(16.dp))
             Text(
                 text = stringResource(id = R.string.try_internet),
                 fontSize = 16.sp,
                 fontWeight = FontWeight(400),
-                fontStyle = FontStyle(R.font.montserrat),
-                color = baseText,
+                fontStyle = FontStyle(R.font.dinpro),
+                color = secondText,
                 textAlign = TextAlign.Center
             )
-            /*Spacer(modifier = modifier.height(64.dp))
+            Spacer(modifier = modifier.height(60.dp))
             Button(
                 modifier = modifier
                     .fillMaxWidth(),
-                shape = RoundedCornerShape(25.dp),
+                shape = RoundedCornerShape(16.dp),
                 contentPadding = PaddingValues(
-                    vertical = 9.dp
+                    vertical = 16.dp
                 ),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = blue,
-                    contentColor = white,
+                    containerColor = grey,
+                    contentColor = thitdText,
                 ),
                 onClick = { onEvent(Reconnect) }
             ) {
                 Text(
                     text = stringResource(id = R.string.reconnect),
                     style = TextStyle(
-                        fontSize = 20.sp,
-                        fontFamily = FontFamily(Font(R.font.nunito)),
-                        fontWeight = FontWeight(700),
+                        fontSize = 16.sp,
+                        fontFamily = FontFamily(Font(R.font.dinpro)),
+                        fontWeight = FontWeight(500),
                     )
                 )
-            }*/
+            }
         }
-        Button(
+        /*Button(
             modifier = modifier
                 .fillMaxWidth()
                 .align(alignment = Alignment.BottomCenter),
             shape = RoundedCornerShape(80.dp),
-            /*border = BorderStroke(
+            *//*border = BorderStroke(
                 width = 1.dp,
                 color = green
-            ),*/
+            ),*//*
             contentPadding = PaddingValues(
                 vertical = 16.dp
             ),
@@ -127,7 +132,7 @@ fun NoInternetScreen(
                     fontWeight = FontWeight(600),
                 )
             )
-        }
+        }*/
     }
 }
 

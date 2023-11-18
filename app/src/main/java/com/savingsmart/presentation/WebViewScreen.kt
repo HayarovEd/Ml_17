@@ -1,4 +1,4 @@
-package com.walletwizard.presentation
+package com.savingsmart.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -21,6 +21,7 @@ import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -41,6 +42,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -48,10 +50,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.FileProvider
-import com.savingsmart.presentation.MainEvent
-import com.walletwizard.R
-import com.walletwizard.ui.theme.baseBackground
-import com.walletwizard.ui.theme.baseText
+import com.savingsmart.R
+import com.savingsmart.R.drawable
+import com.savingsmart.ui.theme.baseText
+import com.savingsmart.ui.theme.white
 import java.io.File
 import java.io.IOException
 
@@ -87,7 +89,7 @@ fun WebViewScreen(
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = baseBackground
+                    containerColor = white
                 ),
                 title = {
                     Row(
@@ -99,7 +101,7 @@ fun WebViewScreen(
                             onEvent(MainEvent.Reconnect)
                         }) {
                             Icon(
-                                imageVector = ImageVector.vectorResource(id = R.drawable.back),
+                                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_back_24),
                                 tint = baseText,
                                 contentDescription = ""
                             )
@@ -107,9 +109,9 @@ fun WebViewScreen(
                         Spacer(modifier = modifier.width(8.dp))
                         Text(
                             color = baseText,
-                            fontStyle = FontStyle(R.font.montserrat),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight(600),
+                            fontStyle = FontStyle(R.font.dinpro),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight(700),
                             text = offerName
                         )
                     }
@@ -119,9 +121,15 @@ fun WebViewScreen(
     ) {valuePaddings->
         Box (modifier = modifier
             .fillMaxSize()
-            .background(color = baseBackground)
+            .background(color = white)
             .padding(valuePaddings),
         ){
+            Image(
+                modifier = modifier
+                    .fillMaxSize(),
+                painter = painterResource(id = drawable.background_image),
+                contentDescription = ""
+            )
             AndroidView(
                 modifier = modifier.padding(4.dp),
                 factory = {
