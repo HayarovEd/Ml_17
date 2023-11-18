@@ -74,7 +74,7 @@ fun CardsScreen(
             modifier = modifier
                 .fillMaxSize()
                 //.background(color = baseBackground)
-                .padding(valuePaddings),
+                //.padding(valuePaddings),
         ) {
             Row(
                 modifier = modifier

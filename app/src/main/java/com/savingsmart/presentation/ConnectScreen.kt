@@ -7,11 +7,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontStyle
@@ -150,30 +151,27 @@ fun ConnectScreen(
                         ItemBottomBar(
                             color = secondText,//if (baseState is Loans) orange else grey,
                             content = stringResource(id = string.loans),
-                            icon = if (baseState is Loans) ImageVector.vectorResource(id = drawable.loans_fill) else ImageVector.vectorResource(
-                                id = drawable.loans
-                            ),
+                            icon = if (baseState is Loans) drawable.loans_fill else
+                                drawable.loans,
                             onClick = onClickLoans
                         )
                     }
                     if (!db.cards.isNullOrEmpty()) {
                         ItemBottomBar(
                             color = secondText,//if (baseState is Cards) orange else grey,
+                            icon = if (baseState is Cards) drawable.cards_fill else
+                                drawable.cards,
                             content = stringResource(id = string.cards),
-                            icon = if (baseState is Cards) ImageVector.vectorResource(id = drawable.cards_fill) else ImageVector.vectorResource(
-                                id = drawable.cards
-                            ),
-                            onClick = onClickCards
+                            onClick = onClickCards,
                         )
                     }
                     if (!db.credits.isNullOrEmpty()) {
                         ItemBottomBar(
                             color = secondText,//if (baseState is Credits) orange else grey,
+                            icon = if (baseState is Credits) drawable.cards_fill else
+                                drawable.credits,
                             content = stringResource(id = string.credits),
-                            icon = if (baseState is Credits) ImageVector.vectorResource(id = drawable.credits_fill) else ImageVector.vectorResource(
-                                id = drawable.credits
-                            ),
-                            onClick = onClickCredits
+                            onClick = onClickCredits,
                         )
                     }
                 }
@@ -232,20 +230,24 @@ fun ConnectScreen(
 @Composable
 fun ItemBottomBar(
     color: Color,
-    icon: ImageVector,
+    icon: Int,
     content: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         IconButton(
             /*colors = IconButtonDefaults.iconButtonColors(
-                contentColor = color
+                contentColor = colorIcon
             ),*/
             onClick = onClick
         ) {
-            Icon(imageVector = icon, contentDescription = "")
+            Image(
+                modifier = Modifier.size(36.dp),
+                painter = painterResource(id = icon),
+                contentDescription = ""
+            )
         }
         Text(
             color = color,

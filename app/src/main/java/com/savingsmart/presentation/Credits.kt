@@ -47,7 +47,7 @@ fun Credits(
             modifier = modifier
                 .fillMaxSize()
                 //.background(color = baseBackground)
-                .padding(valuePaddings),
+                //.padding(valuePaddings),
         ) {
             LazyColumn(
                 modifier = modifier

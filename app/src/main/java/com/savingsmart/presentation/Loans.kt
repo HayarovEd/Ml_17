@@ -47,9 +47,9 @@ fun Loans(
         )
         Column(
             modifier = modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 //.background(color = baseBackground)
-                .padding(valuePaddings),
+                //.padding(valuePaddings),
         ) {
             LazyColumn(
                 modifier = modifier
