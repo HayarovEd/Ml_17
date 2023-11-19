@@ -41,6 +41,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -353,4 +354,32 @@ fun OfferScreen(
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun SampleOfferScreen() {
+    OfferScreen(
+        onEvent = {},
+        baseState = BaseState.Loans,
+        elementOffer = ElementOffer(
+            name = "Google",
+            order = "www.google.ru",
+            amount = "30000",
+            bet = "15%",
+            description = "Google, Google,Google",
+            nameButton = "Google",
+            pathImage = "https://masterimrukami.ru/wp-content/uploads/2023/06/footbal_men_goalkeeper_football_two_ball_glove_542575_7000x46701.jpg",
+            rang = "4/5",
+            showCache = "1",
+            showMaster = "0",
+            showMir = "1",
+            showQiwi = "0",
+            showVisa = "1",
+            showYandex = "0",
+            showPercent = "1",
+            showTerm = "1",
+            term = "30 age"
+        )
+    )
 }
