@@ -131,6 +131,7 @@ fun ConnectScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             IconButton(
+                                modifier = modifier.size(70.dp),
                                 onClick = onClickPrimary
                             ) {
                                 Image(
